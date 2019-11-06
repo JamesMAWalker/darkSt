@@ -17,7 +17,8 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: "Roboto Condensed", sans-serif;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  height: 100vh; }
 
 body {
   overflow-y: scroll;
@@ -27,8 +28,9 @@ body {
     body {
       display: grid;
       grid-template-rows: 1fr;
-      grid-template-columns: repeat(4, 1fr);
-      overflow-y: hidden; } }
+      grid-template-columns: repeat(4, 100vw);
+      overflow-y: hidden;
+      background-color: yellowgreen; } }
 
 section {
   scroll-snap-align: center !important;
@@ -218,13 +220,17 @@ a {
     .main {
       grid-auto-flow: column;
       width: 100vw;
-      height: 100vh; } }
+      height: 100%; } }
   .main__content-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 45%; }
+    @media only screen and (max-width: 37.5em) {
+      .main__content-box {
+        width: 75%;
+        height: 90%; } }
   .main__title {
     position: relative;
     margin-bottom: 2rem;
