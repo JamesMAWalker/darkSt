@@ -5,10 +5,13 @@ const navOne   = document.querySelector('#nav-compromise'),
       navThree = document.querySelector('#nav-network'),
       navBox   = document.querySelector('#nav');
 
+const bpSmaller = window.matchMedia("(max-width: 600px"); 
+
 const sectionOne   = document.querySelector('#compromise'),
       sectionTwo   = document.querySelector('#aws'),
       sectionThree = document.querySelector('#network-security'),
       landing      = document.querySelector('#landing'),
+      mobileIcons  = document.querySelector(".mobile-icon-box"),
       sections     = [sectionOne, sectionTwo, sectionThree, landing];
 
 const options = {
@@ -24,20 +27,32 @@ const observer = new IntersectionObserver( (entries) => {
             navTwo.classList.remove("nav__page-links--active");
             navThree.classList.remove("nav__page-links--active");
             navBox.style.opacity = "1";
+            
+            if (bpSmaller.matches) {
+                mobileIcons.style.opacity = "1";
+            }
         } else if (entry.target === sectionTwo) {
             navTwo.classList.add("nav__page-links--active");
             navOne.classList.remove("nav__page-links--active");
             navThree.classList.remove("nav__page-links--active");
-          
+            
+            if (bpSmaller.matches) {
+              mobileIcons.style.opacity = "1";
+            }
         } else if (entry.target === sectionThree) {
             navThree.classList.add("nav__page-links--active");
             navTwo.classList.remove("nav__page-links--active");
             navOne.classList.remove("nav__page-links--active");
+            
+            if (bpSmaller.matches) {
+              mobileIcons.style.opacity = "1";
+            }
         } else if (entry.target === landing) {
             // navOne.classList.remove("nav__page-links--active");
             // navTwo.classList.remove("nav__page-links--active");
             // navThree.classList.remove("nav__page-links--active");
             navBox.style.opacity = "0";
+            mobileIcons.style.opacity = "0";
         }    
     })
 }, options);
@@ -46,4 +61,23 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
+
+
+// const navStyle = getComputedStyle(navBox);
+
+// if (navStyle.opacity === "0") {
+//     console.log('IT KNOWS');
+//     mobileIcons.style.opacity = "0";
+// } else if (navStyle.opacity === "1") {
+//     console.log('IT ALSO KNOWS');
+//     mobileIcons.style.opacity = "1";
+// }
+
+// if (naxBox.style.opacity === "0") {
+//     console.log('IT KNOWS');
+//     mobileIcons.style.opacity = "0";
+// } else if (naxBox.style.opacity === "1") {
+//     console.log("IT ALSO KNOWS");
+//     mobileIcons.style.opacity = "1";
+// }
 
