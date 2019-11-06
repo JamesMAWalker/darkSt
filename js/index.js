@@ -13,7 +13,7 @@ const sectionOne   = document.querySelector('#compromise'),
 
 const options = {
     root: null,
-    threshold: 1,
+    threshold: .9,
 };
 
 const observer = new IntersectionObserver( (entries) => {
@@ -34,9 +34,10 @@ const observer = new IntersectionObserver( (entries) => {
             navTwo.classList.remove("nav__page-links--active");
             navOne.classList.remove("nav__page-links--active");
         } else if (entry.target === landing) {
-            navOne.classList.remove("nav__page-links--active");
-            navTwo.classList.remove("nav__page-links--active");
-            navThree.classList.remove("nav__page-links--active");
+            // navOne.classList.remove("nav__page-links--active");
+            // navTwo.classList.remove("nav__page-links--active");
+            // navThree.classList.remove("nav__page-links--active");
+            navBox.style.opacity = "0";
         }    
     })
 }, options);
