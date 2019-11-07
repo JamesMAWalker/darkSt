@@ -5,14 +5,16 @@ const navOne   = document.querySelector('#nav-compromise'),
       navThree = document.querySelector('#nav-network'),
       navBox   = document.querySelector('#nav');
 
-const bpSmaller = window.matchMedia("(max-width: 600px"); 
+const bpSmaller = window.matchMedia("(max-width: 600px")
+      htmlWin   = document.getElementById("html");
 
 const sectionOne   = document.querySelector('#compromise'),
       sectionTwo   = document.querySelector('#aws'),
       sectionThree = document.querySelector('#network-security'),
       landing      = document.querySelector('#landing'),
+      bottom      = document.querySelector('#footer-bottom'),
       mobileIcons  = document.querySelector(".mobile-icon-box"),
-      sections     = [sectionOne, sectionTwo, sectionThree, landing];
+      sections     = [sectionOne, sectionTwo, sectionThree, landing, bottom];
 
 const options = {
     root: null,
@@ -27,6 +29,7 @@ const observer = new IntersectionObserver( (entries) => {
             navTwo.classList.remove("nav__page-links--active");
             navThree.classList.remove("nav__page-links--active");
             navBox.style.opacity = "1";
+            htmlWin.style.scrollSnapType = "y mandatory";
             
             if (bpSmaller.matches) {
                 mobileIcons.style.opacity = "1";
@@ -35,7 +38,8 @@ const observer = new IntersectionObserver( (entries) => {
             navTwo.classList.add("nav__page-links--active");
             navOne.classList.remove("nav__page-links--active");
             navThree.classList.remove("nav__page-links--active");
-            
+            htmlWin.style.scrollSnapType = "y mandatory";
+
             if (bpSmaller.matches) {
               mobileIcons.style.opacity = "1";
             }
@@ -43,7 +47,8 @@ const observer = new IntersectionObserver( (entries) => {
             navThree.classList.add("nav__page-links--active");
             navTwo.classList.remove("nav__page-links--active");
             navOne.classList.remove("nav__page-links--active");
-            
+            htmlWin.style.scrollSnapType = "y mandatory";
+
             if (bpSmaller.matches) {
               mobileIcons.style.opacity = "1";
             }
@@ -53,13 +58,18 @@ const observer = new IntersectionObserver( (entries) => {
             // navThree.classList.remove("nav__page-links--active");
             navBox.style.opacity = "0";
             mobileIcons.style.opacity = "0";
-        }    
+            htmlWin.style.scrollSnapType = "y mandatory";
+
+        } else if (entry.target === bottom) {
+            htmlWin.style.scrollSnapType = "none";
+        }   
     })
 }, options);
 
 sections.forEach(section => {
     observer.observe(section);
 });
+
 
 
 

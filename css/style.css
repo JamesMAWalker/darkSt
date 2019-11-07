@@ -19,7 +19,8 @@ html {
   font-family: "Roboto Condensed", sans-serif;
   scroll-behavior: smooth;
   height: 100vh;
-  scroll-snap-type: y mandatory; }
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll; }
   @media only screen and (max-width: 37.5em) {
     html {
       overflow: hidden;
@@ -39,7 +40,7 @@ body {
       overflow-y: hidden; } }
 
 section {
-  scroll-snap-align: end !important; }
+  scroll-snap-align: start !important; }
 
 a {
   text-decoration: none !important;
@@ -309,7 +310,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  scroll-snap-align: end; }
+  scroll-snap-align: center; }
   @media only screen and (max-width: 37.5em) {
     .bottom-cta {
       opacity: 0;
